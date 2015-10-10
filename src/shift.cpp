@@ -1,3 +1,10 @@
+//============================================================================
+// Name        : Cryptoanalysis Substitution Cipher 
+// Author      : Amit Karunakaran and Harshini Vijay Kumar
+// Version     :
+// Copyright   : NYU License
+// Description : Cryptoanalysis Substitution Cipher in C++, Ansi-style
+
 #include <iostream>
 #include <string>
 #include <fstream>
@@ -15,7 +22,7 @@ string dictionary1 = "";
 
 
 /*
- * split string to words delimitor whitespace
+ * check to see present in dictionary2
 */
 
 
@@ -57,7 +64,11 @@ void readDicToString(){
 	//cout << dictionary1;
 }
 
-// shift cipher logic
+
+/*
+ * Shift Cipher Logic
+*/
+//beheld repress endangers continuum teachable inception eigenstate
 bool shiftCipher(string cipherText){
 	for(int i=1;i<=27;i++){
 		std::string plain_text="";
@@ -73,13 +84,18 @@ bool shiftCipher(string cipherText){
 			return true;
 
 		}else if(presentInDictionary1(plain_text)){
+			cout << "present in dictionary1" << endl;
 				return true;
 		}
 	}
 	return false;
 
 }
-// display hash map
+
+/*
+ * Print Hash Map
+*/
+
 void printHashMap(map<string,int > dictionary){
 	//cout << "Map Size " << dictionary.size() << endl;
 	for (std::map<string,int>::iterator it = dictionary.begin(); it != dictionary.end(); it++) { // iterate over the entries  
@@ -90,7 +106,10 @@ void printHashMap(map<string,int > dictionary){
 }
 
 
-// read from dictionary to hash map
+
+/*
+ * Read from Dictionary and store in Hash Map
+*/
 void MapDictionary2(){
 	ifstream fin("./../bin/Dictionary2.txt");
 	if(!fin){
@@ -105,22 +124,23 @@ void MapDictionary2(){
 
 }
 
-
-
-
 /*
-* Starter function
+* STARTER  MAIN FUNCTION
 */
 
 int main(){
 	readDicToString();
 	MapDictionary2();
-	cout << "Enter the cipher text " << endl;
+	cout << "ENTER THE CIPHER TEXT TO BE DECODED " << endl;
 	getline(cin,cipherText);
-	int len = cipherText.length();
-	if(shiftCipher(cipherText))
-		cout << "present" << endl;
 	// cout << " Enter the number of keys used " << endl;
 	// cin >> keys;
+	if(shiftCipher(cipherText)){
+		cout << "PRESENT USING SHIFT CIPHER" << endl;
+	}else{
+		cout << "NOT PRESENT" << endl;
+	}
+
+	
 }
 
