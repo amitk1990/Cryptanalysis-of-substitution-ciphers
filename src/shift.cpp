@@ -16,7 +16,7 @@
 using namespace std;
 string word;	// returns one word at a time
 map<string,int > dictionary2;
-std::set< std::vector<int> > outerVector;
+std::set< std::vector<long> > outerVector;
 string cipherText;
 int keys;
 char alphabetsArray[] = {' ','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'}; 
@@ -28,17 +28,17 @@ string dictionary1 = "";
 int comb[] = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26}; 
 long choose(int * got, int n_chosen, int len, int at, int max_types)
 {
-        int i;
+        long i;
         long count = 0;
         if (n_chosen == len) {
                 if (!got) return 1;
- 				std::vector<int> innerVector;
+ 				std::vector<long> innerVector;
                 for (i = 0; i < len; i++){
-                        //printf("%d ", comb[got[i]]);
+                        printf("%d ", comb[got[i]]);
                         innerVector.push_back(comb[got[i]]);
                 }
                 outerVector.insert(innerVector);
-                cout << "size of outerVector" << outerVector.size() << endl;
+                //cout << "size of outerVector" << outerVector.size() << endl;
                 printf("\n");
                 return 1;
         }
@@ -169,20 +169,20 @@ int main(){
 	// }else{
 	// 	cout << "NOT PRESENT" << endl;
 	// }
-	long value = choose(comb,0,3,0,3);
-	cout << value << endl;
-	std::set< std::vector<int> > ::iterator it;
-	std::cout << "**";
- 	for(it = outerVector.begin(); it!=outerVector.end(); it++)
- 	{
- 		const std::vector<int>& i = (*it);
- 		for(int j = 0; j<i.size(); j++)
- 		{
- 			cout << i[j] << " ";
- 		}
- 		cout << endl;
- 	}
-	std::cout << "**" << endl;
+	long value = choose(comb,0,13,0,26);
+	// cout << value << endl;
+	// std::set< std::vector<long> > ::iterator it;
+	// std::cout << "**";
+ // 	for(it = outerVector.begin(); it!=outerVector.end(); it++)
+ // 	{
+ // 		const std::vector<long>& i = (*it);
+ // 		for(int j = 0; j<i.size(); j++)
+ // 		{
+ // 			cout << i[j] << " ";
+ // 		}
+ // 		cout << endl;
+ // 	}
+	// std::cout << "**" << endl;
 	
 }
 
