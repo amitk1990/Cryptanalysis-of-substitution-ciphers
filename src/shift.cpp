@@ -17,14 +17,9 @@ using namespace std;
 
 int lengthOfText;
 string word;	// returns one word at a time
-<<<<<<< HEAD
 map<string, int > dictionary2;
 std::vector<int> innerVector;
 std::set< std::vector<int> > outerVector;
-=======
-map<string,int > dictionary2;
-std::set< std::vector<long> > outerVector;
->>>>>>> origin/master
 string cipherText;
 int numberOfKeys;
 char alphabetsArray[] = { ' ', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z' };
@@ -32,41 +27,7 @@ string dictionary1 = "";
 vector<int> comb = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26 };
 
 /*
-<<<<<<< HEAD
 * Check to see present in dictionary2
-=======
- * Combination problem
-*/
-int comb[] = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26}; 
-long choose(int * got, int n_chosen, int len, int at, int max_types)
-{
-        long i;
-        long count = 0;
-        if (n_chosen == len) {
-                if (!got) return 1;
- 				std::vector<long> innerVector;
-                for (i = 0; i < len; i++){
-                        printf("%d ", comb[got[i]]);
-                        innerVector.push_back(comb[got[i]]);
-                }
-                outerVector.insert(innerVector);
-                //cout << "size of outerVector" << outerVector.size() << endl;
-                printf("\n");
-                return 1;
-        }
- 
-        for (i = at; i < max_types; i++) {
-                if (got) got[n_chosen] = i;
-                count += choose(got, n_chosen + 1, len, i, max_types);
-        }
-        return count;
-}
-
-
-
-/*
- * Check to see present in dictionary2
->>>>>>> origin/master
 */
 bool presentInDictionary2(string substr){
 	string buf;
@@ -107,7 +68,7 @@ void readDicToString(){
 
 
 /*
-* Recursive Logic to find all possible plaintexts 
+* Recursive Logic to find all possible plaintexts
 */
 bool recursiveSearch(vector<int> cipherText, int index, vector<int> plainTextTest, vector<int> testKeys)
 {
@@ -253,21 +214,21 @@ void go(int offset, int k) {
 int main(){
 	readDicToString();
 	MapDictionary2();
-<<<<<<< HEAD
 	cout << "ENTER THE CIPHER TEXT TO BE DECODED " << endl;
-	getline(cin,cipherText);
+	getline(cin, cipherText);
 	lengthOfText = cipherText.length();
 	cout << " Enter the number of keys used " << endl;
 	cin >> numberOfKeys;
 	//go(0, numberOfKeys);
 	vector<int> plainTextTest(lengthOfText);
 	/*for (set< vector<int> >::iterator it = outerVector.begin(); it != outerVector.end(); ++it) {
-		recursiveSearch(convertCipher(cipherText), 0, plainTextTest, *it);
+	recursiveSearch(convertCipher(cipherText), 0, plainTextTest, *it);
 	}*/
-	vector<int> testKeys = {0,1};
-	if(shiftCipher(cipherText)){ 
+	vector<int> testKeys = { 0, 1 };
+	if (shiftCipher(cipherText)){
 		cout << "PRESENT USING SHIFT CIPHER" << endl;
-	}else{
+	}
+	else{
 		cout << "NOT PRESENT" << endl;
 	}
 	/*long value = choose(comb, 0, 3, 0, 3);
@@ -276,41 +237,15 @@ int main(){
 	std::cout << "**";
 	for (it = outerVector.begin(); it != outerVector.end(); it++)
 	{
-		const std::vector<int>& i = (*it);
-		for (int j = 0; j<i.size(); j++)
-		{
-			cout << i[j] << " ";
-		}
-		cout << endl;
+	const std::vector<int>& i = (*it);
+	for (int j = 0; j<i.size(); j++)
+	{
+	cout << i[j] << " ";
+	}
+	cout << endl;
 	}
 	std::cout << "**" << endl;*/
 	string buffer;
 	cin >> buffer;
-=======
-	//cout << "ENTER THE CIPHER TEXT TO BE DECODED " << endl;
-	//getline(cin,cipherText);
-	 cout << " Enter the number of keys used " << endl;
-	 cin >> keys;
-	// if(shiftCipher(cipherText)){
-	// 	cout << "PRESENT USING SHIFT CIPHER" << endl;
-	// }else{
-	// 	cout << "NOT PRESENT" << endl;
-	// }
-	long value = choose(comb,0,13,0,26);
-	// cout << value << endl;
-	// std::set< std::vector<long> > ::iterator it;
-	// std::cout << "**";
- // 	for(it = outerVector.begin(); it!=outerVector.end(); it++)
- // 	{
- // 		const std::vector<long>& i = (*it);
- // 		for(int j = 0; j<i.size(); j++)
- // 		{
- // 			cout << i[j] << " ";
- // 		}
- // 		cout << endl;
- // 	}
-	// std::cout << "**" << endl;
-	
->>>>>>> origin/master
 }
 
